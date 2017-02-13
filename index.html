@@ -4,6 +4,9 @@
 	<meta charset="UTF-8" />
 	<title>Phaser - Making your first game, part 1</title>
 	<script type="text/javascript" src="js/phaser.min.js"></script>
+	<script type="text/javascript" src="src/point.js"></script>
+    <script type="text/javascript" src="src/tank.js"></script>
+    <script type="text/javascript" src="src/projectile.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -16,13 +19,36 @@
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+var tank1 = new Tank();
+tank1.name = "tank 1";
+tank1.position.x = 10;
+tank1.position.y = 20;
+
+var tank2 = new Tank();
+var p = null;
+
+
+function showTank(t) {
+    console.log("adding tank - " + t.name);
+    game.add.sprite(t.position.x, t.position.y, 'star');
+}
+
 function preload() {
+    game.load.image('star', 'assets/star.png');
 }
 
 function create() {
+    showTank(tank1);
+    showTank(tank2);
+    
+    p = tank1.shoot();
+    
 }
 
 function update() {
+    
+    
+    
 }
 
 </script>
