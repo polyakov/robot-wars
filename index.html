@@ -26,13 +26,27 @@ tank1.position.y = 20;
 
 var tank2 = new Tank();
 var p = null;
+var projectilex;
+var projectiley;
 
+var cursors;
+var weapon;
+var firebutton;
 
 function showTank(t) {
     console.log("adding tank - " + t.name);
-    game.add.sprite(t.position.x, t.position.y, 'star');
+    tank1 = game.add.sprite(t.position.x, t.position.y, 'star');
 }
 
+function showProjectile(p)
+{
+
+    console.log("creating projectile");
+    // projectile = game.add.sprite(p.position.x, p.position.y, 'star');
+    //projectilex = p.position.x;
+    //projectiley = p.position.y;
+
+}
 function preload() {
     game.load.image('star', 'assets/star.png');
 }
@@ -41,14 +55,53 @@ function create() {
     showTank(tank1);
     showTank(tank2);
     
-    p = tank1.shoot();
-    
+    //p = tank1.shoot();
+    showProjectile(p);
+
+    cursors = this.input.keyboard.createCursorKeys();
+
+    game.physics.arcade.enable(tank1);
+
+    tank1.body.drag.set(70);
+    tank1.body.maxVelocity.set(200);
+    //firebutton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+
+   // weapon = game.add.weapon(30, 'bullet');
+
+    //weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+
+    //weapon.bulletSpeed = 600;
+
+    //weapon.fireRate = 100;
+
+    //weapon.trackSprite(tank1, 0, 0, true);
 }
 
 function update() {
-    
-    
-    
+if(cursors.up.isDown){
+    //tank1.move();
+    game.physics.arcade.accelerationFromRotation(tank1.rotation, 300, tank1.body.acceleration);
+}
+else{
+    tank1.body.acceleration.set(0);
+
+}
+if(cursors.left.isDown){
+    tank1.body.angularVelocity = -300;
+}
+else if(cursors.right.isDown){
+    tank1.body.angularVelocity = 300;
+}
+    else{
+        tank1.body.angularVelocity = 0;
+
+}
+
+    /*if (firebutton.isDown)
+    {
+        weapon.fire();
+    }*/
+
 }
 
 </script>
