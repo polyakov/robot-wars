@@ -48,7 +48,7 @@ function showProjectile(p)
 
 }
 function preload() {
-    game.load.image('star', 'assets/star.png');
+    game.load.image('star', 'assets/RobotWarsTank1.png');
 }
 
 function create() {
@@ -62,7 +62,7 @@ function create() {
 
     game.physics.arcade.enable(tank1);
 
-    tank1.body.drag.set(70);
+    tank1.body.drag.set(300);
     tank1.body.maxVelocity.set(200);
     //firebutton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
@@ -80,7 +80,7 @@ function create() {
 function update() {
 if(cursors.up.isDown){
     //tank1.move();
-    game.physics.arcade.accelerationFromRotation(tank1.rotation, 300, tank1.body.acceleration);
+    game.physics.arcade.accelerationFromRotation(tank1.rotation,300, tank1.body.acceleration);
 }
 else{
     tank1.body.acceleration.set(0);
