@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98b03166-0d65-4aae-87ca-3461b5b71caf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="98b03166-0d65-4aae-87ca-3461b5b71caf" name="Default" comment="" />
     <ignored path="robot-wars.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -357,12 +354,12 @@
       <option name="presentableId" value="Default" />
       <updated>1487029747728</updated>
       <workItem from="1487029748927" duration="18351000" />
-      <workItem from="1487167112844" duration="19547000" />
+      <workItem from="1487167112844" duration="19801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37898000" />
+    <option name="totallyTimeSpent" value="38152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1402" extended-state="6" />
