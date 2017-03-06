@@ -21,8 +21,8 @@ var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create
 
 var tank1 = new Tank();
 tank1.name = "tank 1";
-tank1.position.x = 10;
-tank1.position.y = 20;
+tank1.position.x = 100;
+tank1.position.y = 100;
 
 var tank2 = new Tank();
 var p = null;
@@ -53,7 +53,7 @@ function preload() {
 
 function create() {
     showTank(tank1);
-    showTank(tank2);
+    //showTank(tank2);
     
     //p = tank1.shoot();
     showProjectile(p);
@@ -62,6 +62,8 @@ function create() {
 
     game.physics.arcade.enable(tank1);
 
+    tank1.body.collideWorldBounds = true;
+    //player.body.collideWorldBounds = true;
     tank1.body.drag.set(300);
     tank1.body.maxVelocity.set(200);
     tank1.anchor.setTo(0.5, 0.5);
