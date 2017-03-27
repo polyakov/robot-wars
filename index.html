@@ -19,6 +19,8 @@
 
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 
+var fire;
+
 var tank1 = new Tank();
 tank1.name = "tank 1";
 tank1.position.x = 100;
@@ -33,9 +35,17 @@ var cursors;
 var weapon;
 var firebutton;
 
+var projectile;
+
+function fire(){
+    game.physics.arcade.accelerationFromRotation(projectile.rotation,300, projectile.body.acceleration);
+    console.log("fire");
+}
+
 function showTank(t) {
     console.log("adding tank - " + t.name);
     tank1 = game.add.sprite(t.position.x, t.position.y, 'star');
+    tank1.anchor.setTo(0.5, 0.5);
 }
 
 function showProjectile(p)
@@ -49,12 +59,15 @@ function showProjectile(p)
 }
 function preload() {
     game.load.image('star', 'assets/RobotWarsTank1.png');
+    game.load.image('projectile', 'assets/star.png');
 }
 
 function create() {
+
     showTank(tank1);
     //showTank(tank2);
-    
+    projectile = game.add.sprite(game.world.centerX, game.world.centerY, 'projectile');
+    projectile.anchor.setTo(0.5, 0.5);
     //p = tank1.shoot();
     showProjectile(p);
 
@@ -62,9 +75,13 @@ function create() {
 
     game.physics.arcade.enable(tank1);
 
+    projectile.physics.arcade.enable(projectile);
+
     tank1.body.collideWorldBounds = true;
     //player.body.collideWorldBounds = true;
-    tank1.body.drag.set(300);
+    //tank1.body.drag.set(300);
+    tank1.body.drag.x = 5;
+    tank1.body.drag.y = 5;
     tank1.body.maxVelocity.set(200);
     tank1.anchor.setTo(0.5, 0.5);
     //firebutton = this.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
@@ -81,6 +98,21 @@ function create() {
 }
 
 function update() {
+    projectile.angle = tank1.angle;
+    projectile.y = tank1.y;
+    projectile.x = tank1.x;
+   /* if(spaceBar.isDown){
+        projectile.
+    }*/
+
+    //fire = game.input.keyboard.addKey(Phaser.KeyCode.LEFT);
+
+if(cursors.down.isDown){
+    //do nothing
+    fire();
+}
+
+
 if(cursors.up.isDown){
     //tank1.move();
     game.physics.arcade.accelerationFromRotation(tank1.rotation,300, tank1.body.acceleration);
@@ -104,7 +136,6 @@ else if(cursors.right.isDown){
     {
         weapon.fire();
     }*/
-
 }
 
 </script>
