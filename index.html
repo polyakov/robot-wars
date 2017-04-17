@@ -74,8 +74,7 @@ function create() {
     cursors = this.input.keyboard.createCursorKeys();
 
     game.physics.arcade.enable(tank1);
-
-    projectile.physics.arcade.enable(projectile);
+    game.physics.arcade.enable(projectile);
 
     tank1.body.collideWorldBounds = true;
     //player.body.collideWorldBounds = true;

@@ -11,17 +11,12 @@ class Tank {
         //this.position.x += deltaX;
         //this.position.y += deltaY;
         this.moveS = 300;
-
-
     }
-
-
 
     shoot(): Projectile {
         console.log("Creating project at position - x: " + this.position.x + ", y: "+ this.position.y );
         let directionX: number = 100;
         let directionY: number = 20;
-        
         let p:Projectile = new Projectile(this.position.x, this.position.y, directionX,directionY);
         
         return p;
